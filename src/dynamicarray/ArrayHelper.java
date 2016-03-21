@@ -25,11 +25,11 @@ public final class ArrayHelper {
     public static <T> T[] removeElementAtIndex(Class<T> typeClass, T[] array, int index) {
         @SuppressWarnings("unchecked")
         T[] newArray = (T[]) Array.newInstance(typeClass, array.length - 1);
-        int ujTombIndex = 0;
-        for (int eredetiTombIndex = 0; eredetiTombIndex < array.length; eredetiTombIndex++) {
-            if (eredetiTombIndex != index) {
-                newArray[ujTombIndex] = array[eredetiTombIndex];
-                ujTombIndex++;
+        int newArrayIndex = 0;
+        for (int originalArrayIndex = 0; originalArrayIndex < array.length; originalArrayIndex++) {
+            if (originalArrayIndex != index) {
+                newArray[newArrayIndex] = array[originalArrayIndex];
+                newArrayIndex++;
             }
         }
         return newArray;
@@ -75,15 +75,15 @@ public final class ArrayHelper {
         }
         @SuppressWarnings("unchecked")
         T[] newArray = (T[]) Array.newInstance(typeClass, array.length + 1);
-        int ujTombIndex = 0;  
+        int newArrayIndex = 0;  
 
-        for (int eredetiTombIndex = 0; eredetiTombIndex < array.length; eredetiTombIndex++) {
-            if (ujTombIndex == index) {  
-                newArray[ujTombIndex] = element;
-                ujTombIndex++;
+        for (int originalArrayIndex = 0; originalArrayIndex < array.length; originalArrayIndex++) {
+            if (newArrayIndex == index) {  
+                newArray[newArrayIndex] = element;
+                newArrayIndex++;
             }
-            newArray[ujTombIndex] = array[eredetiTombIndex];
-            ujTombIndex++;
+            newArray[newArrayIndex] = array[originalArrayIndex];
+            newArrayIndex++;
         }
         return newArray;
     }
